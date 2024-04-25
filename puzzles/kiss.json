@@ -1,0 +1,96 @@
+{
+	"options": [],
+	"components": [
+		{
+			"type": "CONDITION",
+			"condition": {
+				"type": "COMPARE_VALUES",
+				"compare_values": {
+					"options": [
+						"FALSE_REPLY"
+					],
+					"operator": "NOT_EQUAL",
+					"left": "{{ member.user.id === command.options.find(i => i.name === 'кого')?.value }}",
+					"right": "{{ true }}",
+					"false_reply": {
+						"content": "<@{{ member.user.id }}> поцеловал(а) себя!",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "ACTION",
+			"action": {
+				"type": "REPLY",
+				"reply": {
+					"options": [],
+					"message": {
+						"content": "{{\nconst user = command.options.find(i => i.name === 'кого').user\nconst asciimoji = [\n    '(* ^ ω ^)',\n    '(o^▽^o)',\n    'ヽ(・∀・)ﾉ',\n    '(o･ω･o)',\n    '(´• ω •`)',\n    '╰(▔∀▔)╯',\n    '(✯◡✯)',\n    '(*°▽°*)',\n    '(´｡• ᵕ •｡`)',\n    'ヽ(>∀<☆)ノ',\n    '＼(￣▽￣)／',\n    '(╯✧▽✧)╯',\n    '(＠＾◡＾)',\n    '(◕‿◕)',\n    'o(≧▽≦)o',\n    '(★ω★)/',\n    '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧',\n    'ヽ(o＾▽＾o)ノ',\n    '＼(＾▽＾)／',\n    '。.:☆*:･(*⌒―⌒*)))',\n    '∑d(°∀°d)',\n    '°˖✧◝(⁰▿⁰)◜✧˖°'\n]\n}}\n<@{{ member.user.id }}> поцеловал(а) <@{{ user.id }}> **{{ asciimoji[Math.floor(Math.random() * asciimoji.length)] }}**",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		}
+	],
+	"command": {
+		"type": 1,
+		"name": "kiss",
+		"description": "Поцеловать кого-нибудь",
+		"options": [
+			{
+				"type": 6,
+				"name": "кого",
+				"description": "Укажите, кого хотите поцеловать",
+				"required": false
+			}
+		]
+	},
+	"throttling": null
+}

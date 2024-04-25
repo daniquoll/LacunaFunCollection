@@ -1,0 +1,47 @@
+{
+	"options": [],
+	"components": [
+		{
+			"type": "ACTION",
+			"action": {
+				"type": "REPLY",
+				"reply": {
+					"options": [],
+					"message": {
+						"content": "**{{ member.user.username }}** подбросил монету и ему **{{ Math.random() >= 0.5 ? \"выпала решка\" : \"выпал орёл\" }}**",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		}
+	],
+	"command": {
+		"type": 1,
+		"name": "coinflip",
+		"description": "Подбросить монету",
+		"options": []
+	}
+}

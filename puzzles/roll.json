@@ -1,0 +1,62 @@
+{
+	"options": [],
+	"components": [
+		{
+			"type": "ACTION",
+			"action": {
+				"type": "REPLY",
+				"reply": {
+					"options": [],
+					"message": {
+						"content": "{{\nconst min = command.options.find(i => i.name === 'мин')?.value ?? 1\nconst max = command.options.find(i => i.name === 'макс')?.value ?? 100\nconst number = Math.floor(Math.random() * max) + min\n}}\n\n{{ `**${member.user.username}** получает число **${number}**` }}",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		}
+	],
+	"command": {
+		"type": 1,
+		"name": "roll",
+		"description": "Получить случайное число",
+		"options": [
+			{
+				"type": 4,
+				"name": "мин",
+				"description": "Минимальное значение (по умолчанию 1)",
+				"required": false,
+				"choices": []
+			},
+			{
+				"type": 4,
+				"name": "макс",
+				"description": "Максимальное значение (по умолчанию 100)",
+				"required": false,
+				"choices": []
+			}
+		]
+	}
+}

@@ -1,0 +1,150 @@
+{
+	"options": [],
+	"components": [
+		{
+			"type": "CONDITION",
+			"condition": {
+				"type": "COMPARE_VALUES",
+				"compare_values": {
+					"options": [
+						"FALSE_REPLY",
+						"FALSE_REPLY_EPHEMERAL"
+					],
+					"operator": "GREATER_THAN",
+					"left": "{{ command.options.length }}",
+					"right": "{{ 2 }}",
+					"false_reply": {
+						"content": "**{{ member.user.username }}**, укажите хотя бы 2-х человек",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "ACTION",
+			"action": {
+				"type": "REPLY",
+				"reply": {
+					"options": [],
+					"message": {
+						"content": "{{\nconst values = command.options.map(v => v.value)\nconst randomNum = Math.floor(Math.random() * values.length)\n}}\nБог рандома выбрал <@{{ values[randomNum] }}>",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		}
+	],
+	"command": {
+		"type": 1,
+		"name": "someone",
+		"description": "Случайно выбрать одного человека из указанного списка",
+		"options": [
+			{
+				"type": 6,
+				"name": "1",
+				"description": "1-ый",
+				"required": true
+			},
+			{
+				"type": 6,
+				"name": "2",
+				"description": "2-ой",
+				"required": true
+			},
+			{
+				"type": 6,
+				"name": "3",
+				"description": "3-ий",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "4",
+				"description": "4-ый",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "5",
+				"description": "5-ый",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "6",
+				"description": "6-ой",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "7",
+				"description": "7-ой",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "8",
+				"description": "8-ой",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "9",
+				"description": "9-ый",
+				"required": false
+			},
+			{
+				"type": 6,
+				"name": "10",
+				"description": "10-ый",
+				"required": false
+			}
+		]
+	}
+}

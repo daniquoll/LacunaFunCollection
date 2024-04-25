@@ -1,0 +1,97 @@
+{
+	"options": [],
+	"components": [
+		{
+			"type": "CONDITION",
+			"condition": {
+				"type": "COMPARE_VALUES",
+				"compare_values": {
+					"options": [
+						"FALSE_REPLY",
+						"FALSE_REPLY_EPHEMERAL"
+					],
+					"operator": "EQUAL",
+					"left": "{{ command.options.find(i => i.name === 'вопрос')?.value?.endsWith('?') }}",
+					"right": "{{ true }}",
+					"false_reply": {
+						"content": "**{{ member.user.username }}**, задайте мне вопрос!",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "ACTION",
+			"action": {
+				"type": "REPLY",
+				"reply": {
+					"options": [],
+					"message": {
+						"content": "{{\nconst answers = [\n  \"как я вижу, да\", \"это точно\", \"это явно так\", \"скорее всего\",\n  \"перспективы хорошие\", \"знаки указывают, что да\",\n  \"без сомнения\", \"да\", \"да, безусловно\",\n  \"ты можешь положиться на меня\", \"ответ туманен, попробуй еще раз\", \"повтори попытку позже\",\n  \"сейчас лучше не рассказывать\", \"невозможно предсказать сейчас\", \"сконцентрируйся и спроси еще раз\",\n  \"не рассчитывай на это\", \"мой ответ - нет\", \"мои источники говорят, что нет\",\n  \"перспектива не так хороша\", \"очень сомнительно\"\n]\n\nfunction choose(...args) {\n  const randomNum = Math.floor(Math.random() * args.length)\n  return args[randomNum]\n}\n}}\n**{{ member.user.username }}**, {{ choose(...answers) }}",
+						"embed": {
+							"active": false,
+							"title": null,
+							"description": null,
+							"url": null,
+							"timestamp": null,
+							"color": null,
+							"footer": {
+								"text": null,
+								"icon_url": null
+							},
+							"image": {
+								"url": null
+							},
+							"thumbnail": {
+								"url": null
+							},
+							"author": {
+								"name": null,
+								"url": null,
+								"icon_url": null
+							},
+							"fields": []
+						}
+					}
+				}
+			}
+		}
+	],
+	"command": {
+		"type": 1,
+		"name": "8ball",
+		"description": "Спросите меня о чем-нибудь вопросом \"Да/Нет\"",
+		"options": [
+			{
+				"type": 3,
+				"name": "вопрос",
+				"description": "Укажите вопрос",
+				"required": true,
+				"choices": []
+			}
+		]
+	}
+}
