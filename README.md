@@ -1,5 +1,7 @@
-Добавляет несколько команд по типу `hug`, `kiss`, `coinflip` для поднятия настроения.
+# LacunaFunCollection
 
-## Помощь
+Adds a few fun commands for your community.
 
-Вы можете задать свои вопросы на нашем [официальном сервере](https://discord.gg/n8ZkQMPb).
+# Support
+
+Create an issue in this repository.

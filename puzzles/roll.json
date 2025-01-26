@@ -1,62 +1,32 @@
 {
 	"options": [],
-	"components": [
-		{
-			"type": "ACTION",
-			"action": {
-				"type": "REPLY",
-				"reply": {
-					"options": [],
-					"message": {
-						"content": "{{\nconst min = command.options.find(i => i.name === 'мин')?.value ?? 1\nconst max = command.options.find(i => i.name === 'макс')?.value ?? 100\nconst number = Math.floor(Math.random() * max) + min\n}}\n\n{{ `**${member.user.username}** получает число **${number}**` }}",
-						"embed": {
-							"active": false,
-							"title": null,
-							"description": null,
-							"url": null,
-							"timestamp": null,
-							"color": null,
-							"footer": {
-								"text": null,
-								"icon_url": null
-							},
-							"image": {
-								"url": null
-							},
-							"thumbnail": {
-								"url": null
-							},
-							"author": {
-								"name": null,
-								"url": null,
-								"icon_url": null
-							},
-							"fields": []
-						}
-					}
-				}
-			}
-		}
-	],
 	"command": {
 		"type": 1,
 		"name": "roll",
-		"description": "Получить случайное число",
+		"description": "Get a random number",
 		"options": [
 			{
 				"type": 4,
-				"name": "мин",
-				"description": "Минимальное значение (по умолчанию 1)",
+				"name": "min",
+				"description": "Minimum value (default is 1)",
 				"required": false,
 				"choices": []
 			},
 			{
 				"type": 4,
-				"name": "макс",
-				"description": "Максимальное значение (по умолчанию 100)",
+				"name": "max",
+				"description": "Maximum value (default is 100)",
 				"required": false,
 				"choices": []
 			}
 		]
-	}
+	},
+	"id": "1328459059854311544",
+	"scripts": [
+		{
+			"name": null,
+			"language": 1,
+			"code": "const messages = {\n  'en-US': {\n    gets_a_number: \"gets a number\"\n  },\n  ru: {\n    gets_a_number: \"получает число\"\n  }\n}\n\nconst locale = messages[guild.preferredLocale] ?? messages['en-US']\n\nconst min = command.options.find(i => i.name === 'min')?.value ?? 1,\n  max = command.options.find(i => i.name === 'max')?.value ?? 100\nconst number = Math.floor(Math.random() * max) + min\n\nawait reply({\n  content: `**${member.user.username}** ${locale.gets_a_number} **${number}**`\n})\n"
+		}
+	]
 }

@@ -1,55 +1,25 @@
 {
 	"options": [],
-	"components": [
-		{
-			"type": "ACTION",
-			"action": {
-				"type": "REPLY",
-				"reply": {
-					"options": [],
-					"message": {
-						"content": "{{\nconst text = command.options.find(v => v.name === 'текст')?.value || 'делает текст похожим на этот'\nconst split = text.split(/\\s+/)\n}}\n{{\n`👏 ${split.join(' 👏 ')} 👏`\n}}",
-						"embed": {
-							"active": false,
-							"title": null,
-							"description": null,
-							"url": null,
-							"timestamp": null,
-							"color": null,
-							"footer": {
-								"text": null,
-								"icon_url": null
-							},
-							"image": {
-								"url": null
-							},
-							"thumbnail": {
-								"url": null
-							},
-							"author": {
-								"name": null,
-								"url": null,
-								"icon_url": null
-							},
-							"fields": []
-						}
-					}
-				}
-			}
-		}
-	],
 	"command": {
 		"type": 1,
 		"name": "clap",
-		"description": "👏 делает 👏 текст 👏 похожим 👏 на 👏 этот 👏",
+		"description": "👏 makes 👏 text 👏 look 👏 like 👏 this 👏",
 		"options": [
 			{
 				"type": 3,
-				"name": "текст",
-				"description": "Укажите текст",
+				"name": "text",
+				"description": "Specify text",
 				"required": true,
 				"choices": []
 			}
 		]
-	}
+	},
+	"id": "1328458806165901422",
+	"scripts": [
+		{
+			"name": null,
+			"language": 1,
+			"code": "const text = command.options.find(v => v.name === 'text')?.value || 'lorem ipsum is simply dummy text',\n  split = text.split(/\\s+/)\n\nawait reply({\n  content: `👏 ${split.join(' 👏 ')} 👏`\n})\n"
+		}
+	]
 }

@@ -1,96 +1,24 @@
 {
 	"options": [],
-	"components": [
-		{
-			"type": "CONDITION",
-			"condition": {
-				"type": "COMPARE_VALUES",
-				"compare_values": {
-					"options": [
-						"FALSE_REPLY"
-					],
-					"operator": "NOT_EQUAL",
-					"left": "{{ member.user.id === command.options.find(i => i.name === 'кому')?.value }}",
-					"right": "{{ true }}",
-					"false_reply": {
-						"content": "<@{{ member.user.id }}> подмигнул(а) себе!",
-						"embed": {
-							"active": false,
-							"title": null,
-							"description": null,
-							"url": null,
-							"timestamp": null,
-							"color": null,
-							"footer": {
-								"text": null,
-								"icon_url": null
-							},
-							"image": {
-								"url": null
-							},
-							"thumbnail": {
-								"url": null
-							},
-							"author": {
-								"name": null,
-								"url": null,
-								"icon_url": null
-							},
-							"fields": []
-						}
-					}
-				}
-			}
-		},
-		{
-			"type": "ACTION",
-			"action": {
-				"type": "REPLY",
-				"reply": {
-					"options": [],
-					"message": {
-						"content": "{{\nconst user = command.options.find(i => i.name === 'кого').user\nconst asciimoji = [\n    '(* ^ ω ^)',\n    '(o^▽^o)',\n    'ヽ(・∀・)ﾉ',\n    '(o･ω･o)',\n    '(´• ω •`)',\n    '╰(▔∀▔)╯',\n    '(✯◡✯)',\n    '(*°▽°*)',\n    '(´｡• ᵕ •｡`)',\n    'ヽ(>∀<☆)ノ',\n    '＼(￣▽￣)／',\n    '(╯✧▽✧)╯',\n    '(＠＾◡＾)',\n    '(◕‿◕)',\n    'o(≧▽≦)o',\n    '(★ω★)/',\n    '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧',\n    'ヽ(o＾▽＾o)ノ',\n    '＼(＾▽＾)／',\n    '。.:☆*:･(*⌒―⌒*)))',\n    '∑d(°∀°d)',\n    '°˖✧◝(⁰▿⁰)◜✧˖°'\n]\n}}\n<@{{ member.user.id }}> подмигнул(а) <@{{ user.id }}> **{{ asciimoji[Math.floor(Math.random() * asciimoji.length)] }}**",
-						"embed": {
-							"active": false,
-							"title": null,
-							"description": null,
-							"url": null,
-							"timestamp": null,
-							"color": null,
-							"footer": {
-								"text": null,
-								"icon_url": null
-							},
-							"image": {
-								"url": null
-							},
-							"thumbnail": {
-								"url": null
-							},
-							"author": {
-								"name": null,
-								"url": null,
-								"icon_url": null
-							},
-							"fields": []
-						}
-					}
-				}
-			}
-		}
-	],
 	"command": {
 		"type": 1,
 		"name": "wink",
-		"description": "Подмигнуть кому-нибудь",
+		"description": "Wink at someone",
 		"options": [
 			{
 				"type": 6,
-				"name": "кому",
-				"description": "Укажите, кому хотите подмигнуть",
-				"required": false
+				"name": "whom",
+				"description": "Specify whom you want to wink",
+				"required": true
 			}
 		]
 	},
-	"throttling": null
+	"id": "1328459098508886047",
+	"scripts": [
+		{
+			"name": null,
+			"language": 1,
+			"code": "const messages = {\n  'en-US': {\n    winked: \"winked\"\n  },\n  ru: {\n    winked: \"подмигнул(а)\"\n  }\n}\n\nconst locale = messages[guild.preferredLocale] ?? messages['en-US']\n\nconst whom = command.options.find(i => i.name === 'whom')\nconst asciimoji = [\n  '(* ^ ω ^)',\n  '(o^▽^o)',\n  'ヽ(・∀・)ﾉ',\n  '(o･ω･o)',\n  '(´• ω •`)',\n  '╰(▔∀▔)╯',\n  '(✯◡✯)',\n  '(*°▽°*)',\n  '(´｡• ᵕ •｡`)',\n  'ヽ(>∀<☆)ノ',\n  '＼(￣▽￣)／',\n  '(╯✧▽✧)╯',\n  '(＠＾◡＾)',\n  '(◕‿◕)',\n  'o(≧▽≦)o',\n  '(★ω★)/',\n  '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧',\n  'ヽ(o＾▽＾o)ノ',\n  '＼(＾▽＾)／',\n  '。.:☆*:･(*⌒―⌒*)))',\n  '∑d(°∀°d)',\n  '°˖✧◝(⁰▿⁰)◜✧˖°'\n]\n\nawait reply({\n  content: `<@${member.user.id}> ${locale.winked} <@${whom.user.id}> **${asciimoji[Math.floor(Math.random() * asciimoji.length)]}**`\n})\n"
+		}
+	]
 }

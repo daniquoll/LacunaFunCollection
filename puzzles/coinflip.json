@@ -1,47 +1,17 @@
 {
 	"options": [],
-	"components": [
-		{
-			"type": "ACTION",
-			"action": {
-				"type": "REPLY",
-				"reply": {
-					"options": [],
-					"message": {
-						"content": "**{{ member.user.username }}** подбросил монету и ему **{{ Math.random() >= 0.5 ? \"выпала решка\" : \"выпал орёл\" }}**",
-						"embed": {
-							"active": false,
-							"title": null,
-							"description": null,
-							"url": null,
-							"timestamp": null,
-							"color": null,
-							"footer": {
-								"text": null,
-								"icon_url": null
-							},
-							"image": {
-								"url": null
-							},
-							"thumbnail": {
-								"url": null
-							},
-							"author": {
-								"name": null,
-								"url": null,
-								"icon_url": null
-							},
-							"fields": []
-						}
-					}
-				}
-			}
-		}
-	],
 	"command": {
 		"type": 1,
 		"name": "coinflip",
-		"description": "Подбросить монету",
+		"description": "Flip a coin",
 		"options": []
-	}
+	},
+	"id": "1328458813002612759",
+	"scripts": [
+		{
+			"name": null,
+			"language": 1,
+			"code": "const messages = {\n  'en-US': {\n    flipped_a_coin: \"flipped a coin and got\",\n    tails: \"tails\",\n    heads: \"heads\"\n  },\n  ru: {\n    flipped_a_coin: \"подбрасывает монету и выпадает\",\n    tails: \"решка\",\n    heads: \"орёл\"\n  }\n}\n\nconst locale = messages[guild.preferredLocale] ?? messages['en-US']\n\nawait reply({\n  content: `**${member.user.username}** ${locale.flipped_a_coin} **${Math.random() >= 0.5 ? locale.tails : locale.heads}**`\n})\n"
+		}
+	]
 }
